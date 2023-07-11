@@ -1,11 +1,12 @@
 import { legacy_createStore as createStore, applyMiddleware } from "redux";
 import rootReducer from "./rootReducer";
 import logger from "redux-logger";
+import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 // const store=createStore(rootReducer,applyMiddleware(logger));
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(logger))
+  composeWithDevTools(applyMiddleware(logger,thunk))
 );
 export default store;
